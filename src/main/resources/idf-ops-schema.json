@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "enum": ["build", "flash", "monitor"],
+      "description": "The ESP-IDF operation to perform"
+    }
+  },
+  "required": ["operation"]
+}

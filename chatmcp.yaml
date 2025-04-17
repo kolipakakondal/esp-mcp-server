@@ -1,0 +1,30 @@
+params:
+  type: object
+  properties:
+    API_KEY:
+      type: string
+      description: API key for authentication
+  required:
+    - API_KEY
+
+rest:
+  name: esp-mcp-server
+  port: 8080
+  endpoint: /mcp
+
+docker:
+  command: docker run -p 8080:8080 -e API_KEY=${API_KEY} esp-mcp-server
+  config: |
+    {
+      "mcpServers": {
+        "esp-mcp-server": {
+          "command": "docker",
+          "args": [
+            "run",
+            "-p", "8080:8080",
+            "-e", "API_KEY=${API_KEY}",
+            "esp-mcp-server"
+          ]
+        }
+      }
+    }
